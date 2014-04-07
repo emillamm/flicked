@@ -1,0 +1,30 @@
+<div ng-include="'partials/navbar'"></div>
+<div class="bs-callout bs-callout-info"><p class="lead">Thank you for your patience. Here are the results for you..</p></div>
+<div class="toplist">
+  <div class="fade-in" ng-repeat="movie in topmovies">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="thumbnail resultitem">
+          <img src="images/posters/{{movie.id}}.jpg" alt="{{movie.title}}">
+        </div>
+      </div>
+      <div class="col-sm-6">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><span class="badge">{{$index+1}}</span>  {{movie.title}}</h3>
+          </div>
+          <div class="panel-body">
+            {{movie.plot}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="jumbotron" ng-show="topmovies">
+<img src="images/sad.png" class="imgsad">
+<p>Not exactly these movies you had in mind? Very understandable, the algorithm is still a baby. Soon there will be more movies, better predictions and cooler functionality!</p>
+</div>
+<div ng-include="'partials/footer'"></div>
