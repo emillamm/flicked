@@ -1,48 +1,46 @@
 <div ng-include="'partials/navbar'"></div>
 <div class="homehead"> </div>
-<tour step="currentStep">
-  <div class="row" ng-click="$event.preventDefault()">
+<div class="bs-callout bs-callout-info"><p class="lead">Choose one of the two movies you most feel like watching. Do this <i>{{15 - comparisoncount}}</i> times and watch the magic happen</p></div>
+<div class="row" ng-click="$event.preventDefault()">
 
-    <div class="col-sm-6" ng-click="$event.preventDefault()">
-      <div class="panel panel-default movie" ng-click="choice(movie1.id, movie2.id)">
-        <div class="panel-heading">
-          <h4>{{movie1.title}}</h4>
-        </div>
-        <div class="panel-body">
-          <img src="images/posters/{{movie1.id}}.jpg" alt="{{movie1.title}}" align="left">
-          <p><strong>{{movie1.year}}</strong></p>
-          <p>{{movie1.plot}}</p>
-          <p><strong>Genres: </strong><span ng-repeat="genre in movie1.genres">
-            {{genre}}{{$last ? '' : ', '}}
-          </span></p>
-        </div>
+  <div class="col-sm-6" ng-click="$event.preventDefault()">
+    <div class="panel panel-default movie" ng-click="choice(movie1.id, movie2.id)">
+      <div class="panel-heading">
+        <h4>{{movie1.title}}</h4>
       </div>
-    </div>
-
-    <div class="col-sm-6" ng-click="$event.preventDefault()">
-      <div class="panel panel-default movie" ng-click="choice(movie2.id, movie1.id)">
-        <div class="panel-heading">
-          <h4>{{movie2.title}}</h4>
-        </div>
-        <div class="panel-body">
-          <img src="images/posters/{{movie2.id}}.jpg" alt="{{movie2.title}}" align="left">
-          <p><strong>{{movie2.year}}</strong></p>
-          <p>{{movie2.plot}}</p>
-          <p><strong>Genres: </strong><span ng-repeat="genre in movie2.genres">
-            {{genre}}{{$last ? '' : ', '}}
-          </span></p>
-        </div>
+      <div class="panel-body">
+        <img src="images/posters/{{movie1.id}}.jpg" alt="{{movie1.title}}" align="left">
+        <p><strong>{{movie1.year}}</strong></p>
+        <p>{{movie1.plot}}</p>
+        <p><strong>Genres: </strong><span ng-repeat="genre in movie1.genres">
+          {{genre}}{{$last ? '' : ', '}}
+        </span></p>
       </div>
-      <div class="tip col-sm-4" tourtip="Click on the movie you feel like watching the most. Do this 20 times and watch the magic happen." tourtip-placement="bottom" tourtip-next-label="OK"></div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="nochoice col-sm-12" ng-click="$event.preventDefault()">
-      <a href="#" class="btn btn-primary" role="button" ng-click="nochoice()">Next</a>
-      <p class="help-block"><i>If you really don't know which one to choose..</i></p>
+  <div class="col-sm-6" ng-click="$event.preventDefault()">
+    <div class="panel panel-default movie" ng-click="choice(movie2.id, movie1.id)">
+      <div class="panel-heading">
+        <h4>{{movie2.title}}</h4>
+      </div>
+      <div class="panel-body">
+        <img src="images/posters/{{movie2.id}}.jpg" alt="{{movie2.title}}" align="left">
+        <p><strong>{{movie2.year}}</strong></p>
+        <p>{{movie2.plot}}</p>
+        <p><strong>Genres: </strong><span ng-repeat="genre in movie2.genres">
+          {{genre}}{{$last ? '' : ', '}}
+        </span></p>
+      </div>
     </div>
   </div>
-</tour>
+</div>
+
+<div class="row">
+  <div class="nochoice col-sm-12" ng-click="$event.preventDefault()">
+    <a href="#" class="btn btn-primary" role="button" ng-click="nochoice()">Next</a>
+    <p class="help-block"><i>If you don't know which one to choose, press next</i></p>
+  </div>
+</div>
 
 <div ng-include="'partials/footer'"></div>
